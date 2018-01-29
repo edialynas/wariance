@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>VCFree</title>
+    <link rel="shortcut icon" href="Images/dna_logo.ico">
+    <!-- Bootstrap -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/script1.js"></script>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/jim_alert.css" />
+    
+
+    
+</head>
+
+<body background="Images/back.jpg">
+
+    <!-- ======================  BUTTONS ===================== -->
+    <div  id="Head" class="container-fluid">
+
+        <nav class="white" role="navigation">
+          	<div class="nav-wrapper container">
+				<div class="left" id="logo-container" class="brand-logo">
+
+					<a href="http://en.uoc.gr/" target="blank">
+					<img  class="header-image" src="Images/sima_uoc.jpg" width="55" height="50"> 
+					</a>
+					<a href="https://www.forth.gr/" target="blank">
+					<img class="header-image" src="Images/forth_logo.png" width="50" height="50"> 
+					</a>
+					<a href="http://www.bioinformatics-grad.gr/en/" target="blank">
+					<img class="header-image" src="Images/med_logo.jpg" width="50" height="50"> 
+					</a>
+				</div>
+		        <ul class="right" >
+		            <li><a  onclick='myClick("Home","DefHead","Register","RegHead","Login","LogHead","About","AboutHead")'><span class="glyphicon glyphicon-home"></span> Home</a></li>
+		            <li>
+		                <a  onclick='myClick("Register","RegHead","Home","DefHead","Login","LogHead","About","AboutHead")'><span class="glyphicon glyphicon-log-in"></span> Register</a>
+		            </li>
+		            <li>
+		                <a  onclick='myClick("Login","LogHead","Register","RegHead","Home","DefHead","About","AboutHead")'><span class="glyphicon glyphicon-user"></span> Login</a>
+		            </li>
+		            <li>
+		                <a  onclick='myClick("About","AboutHead","Login","LogHead","Register","RegHead","Home","DefHead")'><span class="glyphicon glyphicon-info-sign"></span> About Us</a>
+		            </li>
+		        </ul>
+		        <br><br>
+    		</div>
+    	</nav>
+    </div>
+
+  <div  class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br><br><br>
+        <div class="row center">
+          <h5 class="header col s12 light">Host your VCF analysis in a MySQL database!</h5>
+        </div>
+        <h1 id='DefHead' class="header center teal-text text-lighten-2" >V.C.F<br> Vcf Comparison Free</h1>
+        
+        <h1 id='AboutHead' class="header center teal-text text-lighten-2" style='display: none;' >About us </h1>
+        <h1 id='RegHead' class="header center teal-text text-lighten-2" style='display: none;' >Registration <br> Form</h1>
+        <h1 id='LogHead' class="header center teal-text text-lighten-2" style='display: none;' >Login </h1>
+      </div>
+    </div>
+    <div class="parallax" ><img src="Images/dna.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+  
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+    <div class="container" id="Home">
+    <div class="section">
+
+    <h3 align="left" >In a nutshell</h3>
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">assessment</i></h2>
+            <h5 class="center">VCFtools</h5>
+			<p style="font-size:120%;" class="light">... is a program package designed for working with VCF files. The aim of VCFtools is to provide easily accessible methods for working with complex genetic variation data in the form of VCF files. The variant call format (VCF) is a generic format for storing DNA polymorphism data such as SNPs, insertions, deletions and structural variants, together with rich annotations. VCF is usually stored in a compressed manner and can be indexed for fast data retrieval of variants from a range of positions on the reference genome.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">perm_data_setting</i></h2>
+            <h5 class="center">MySQL</h5>
+
+            <p style="font-size:120%;" class="light">... is an open-source relational database management system. MySQL powers 9 of the 10 top Web sites worldwide, as well as thousands of corporate web-based applications. As new and different requirements emerged with the Internet, MySQL became the platform of choice for web developers, and the default database for web-based applications. It is characterised by performance and scalability, reliability, and ease of use, making it the most popular open source database. 
+            </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to work with</h5>
+
+            <p style="font-size:120%;" class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about our page.Feel free to contact us anytime.</p>
+            <h5 class="brown-text"> Join Us!</h5>
+            <p style="font-size:120%;" class="light" id="Users_num">None</p>
+            <script type="text/javascript">
+              document.getElementById('Users_num').innerHTML = "Active Users: "+Users+"<br>"+"Hosted Institutes: "+Insti;
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- ==================== About US ======================================= -->
+    <div id="About" class="container" style='display: none;'>
+        <div class="section">
+        
+        <!-- <h3 align="left" >In a nutshell</h3> -->
+          <!--   Icon Section   -->
+          <div class="row">
+            <!-- <div class="col s12 m4"> -->
+              <div class="icon-block">
+                <h2 class="center brown-text"><i class="material-icons">info</i></h2>
+                <h5 class="center">Information about our team</h5>
+
+                <p style="font-size:120%;" class="light">.... which consists of seven graduate students of Bioinformatics M.Sc. program, University of Crete. Together with our leader Dr. Emmanouil Dialynas, worked on this project in order to develop a useful scientific tool, for a specific type of analysis, free to the public. We are open to feedback and shall consider any suggestions and instructions for making this work even better!</p>
+              </div>
+            </div>
+            <!-- ==================== TEAM NAMES ======================== -->
+			<div class="row"> 
+	          	<div class="col s12 m4">
+	          	<div class="icon-block">
+	              <h2 class="center brown-text"><i class="material-icons">face</i></h2>
+	              <!-- <h5 class="center">VCFtools</h5> -->
+
+	              <p style="font-size:120%;" class="center">
+	              Chatzipantsiou Christina<br />
+	              Kalaitzidou Chrysovalantou<br />
+	              Kioukis Antonios<br />
+	              Kyriakis Dimitrios<br />
+	              Linardos Panagiwtis<br />
+	              Papadovasilakis Zacharias<br />
+	              Verrou Kleio-Maria<br />
+	              </p>
+	         	 </div>
+          		</div>
+
+          <div class="col s12 m4">
+          <div class="icon-block">
+              <h2 class="center brown-text"><i class="material-icons">contact_mail</i></h2>
+              <!-- <h5 class="center">MySQL</h5> -->
+              <p style="font-size:120%;" class="center">
+                chatzipantsiou@gmail.com<br />
+                kalaitzidou.chr@gmail.com<br />
+                antokioukis@gmail.com<br />
+                kyriakds@gmail.com<br />
+                mondestrasz@gmail.com<br />
+                zpapadov@hotmail.com<br />
+                kleioverrou@yahoo.com<br />
+              </p>
+          </div>
+          </div>
+
+          <div class="col s12 m4">
+          <div class="icon-block">
+              <h2 class="center brown-text"><i class="material-icons">find_in_page</i></h2>
+              <!-- <h5 class="center">Easy to work with</h5> -->
+
+              <p style="font-size:120%;" class="center">
+                chr<br />
+                <a target="_blank" href="https://www.linkedin.com/in/chrysovalantou-kalaitzidou-70b819121/">LinkedIn_Kalaitzidou</a><br />
+                ant<br />
+                <a target="_blank" href="https://www.linkedin.com/in/dimitrios-kyriakis-9376a2120/">LinkedIn_Kyriakis</a><br />
+                akis<br />
+                zack<br />
+                kleio<br />
+              </p>
+          </div>
+          </div>
+        </div> <!--  end of div row  -->
+
+        <br><br><br>
+		<div class="row">
+		<p style="font-size:120%;" class="center">
+		<h5> <i>Supervision under :</i> Emmanouil Dialynas, Ph.D. </h5> <br /> 
+		Institute of Molecular Biology and Biotechnology (IMBB)<br />
+		Foundation of Research and Technology-Hellas (FORTH)<br />
+		Vassilika Vouton, Heraklion, Crete<br />
+		GREECE<br />
+		<br>
+		<a class="brown-text"> <i class="material-icons">contact_mail</i> </a> ed@imbb.forth.gr <br />
+		<a class="brown-text"> <i class="material-icons">find_in_page</i></a> <a  target="_blank" href="http://www.imbb.forth.gr/imbb-people/en/bioinformatics-support-group-members/item/2439-manolis-dialynas" > Homepage </a>
+		<!-- <a class="center brown-text"><i class="material-icons">perm_data_setting</i> </a> -->
+		</p>
+		</div>
+           
+        </div>
+    </div>
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- ======================= LOGIN ================================-->
+    <div id="Login" style='display: none;' class="container">
+        <div class="section">
+        <br><br><br>
+        <!-- <h2>Registration form</h2> -->
+        <div  style="font-size: 18px;width: 50%;" >
+            <!-- EMAIL -->
+            <div class="form-group">
+                <i href="#" class="material-icons" >email</i>
+                <text for="email">Email: </text>
+                <input type="email" class="form-control" id="emaillg" placeholder="Enter email" name="emaillg">
+            </div>
+            <!-- Password -->
+            <div class="form-group" style="font-size: 20 ">
+                <i href="#" class="material-icons" >https</i><text for="pwd">Password:</text>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+            </div>
+            <button onclick="LogSQL()" type="submit" class="btn btn-default">Submit</button>
+            
+        </div>
+        <br><br>
+        	<a style="font-size: 18px;" > Forgot password? </a>
+        	<br><br>
+            <!-- ==========ALERTS============= -->
+            <div class="alert alert-danger" id="Ale4" style='display: none;width: 50%;'>
+	            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+	            <strong>Error !</strong> There is not an account with this email.<br> You can register  <a href="#Head" onclick='myClick("Register","RegHead","Home","DefHead","Login","LogHead","About","AboutHead")'> here! </a>
+        	</div>
+
+            <div class="alert alert-danger" id="Ale5" style='display: none;width: 50%;'>
+	            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+	            <strong> Wrong Password !</strong>
+        	</div>
+            
+            <div class="alert alert-danger" id="Ale6" style='display: none;width: 50%;'>
+	            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+	            <strong>Empty field(s) !</strong> 
+        	</div>
+			<div class="alert alert-success" id="Ale7" style='display: none;width: 50%;'>
+				<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+				<strong>sUCCESS!</strong> KOBLE.
+			</div>
+            <br><br><br>
+    </div>  
+    </div>
+
+     <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <!-- ========================== Registration ===========================-->
+    <div id="Register" style='display: none;' class="container">
+        <div class="section">
+            <br><br><br>
+            <!-- <div class="row"></div> -->
+        <!-- <h2 class="center brown-text">Registration form </h2> -->
+        <div  style="font-size: 18px;width: 50%;">
+            
+            <!-- NAME -->
+            <div class="form-group">
+                <i href="#" class="material-icons"  >account_circle</i><text for="msg">&nbsp;First Name:</text>
+                <input type="text" class="form-control" id="FNameid" placeholder="First Name *" name="FName">
+            </div>
+            <div class="form-input">
+                <i href="#" class="material-icons" >perm_identity</i><text for="msg">&nbsp;Last Name: </text>
+                <input type="text" class="form-control" id="LNameid" placeholder="Last Name *" name="LName">
+            </div>
+
+            <!-- EMAIL -->
+            <div class="form-group">
+                <i href="#" class="material-icons" >email</i>
+                <text for="email">&nbsp;Email:</text>
+                <input style="font-size: 15px;" type="email" class="form-control" id="email" placeholder="Enter email *" name="email">
+            </div>
+
+            <!-- Institute -->
+            <div class="form-group">
+                <i href="#" class="material-icons" >business</i>
+                <text class="control-label " for="msg">&nbsp;Institute:</text>
+                <input type="text" class="form-control" id="Inst" placeholder="e.g FORTH">
+            </div>
+            <div class="form-group">
+                <!-- <i href="#" class="material-icons" >language</i> -->
+                <i href="#" class="material-icons" >room</i><text class="control-label " for="msg">&nbsp;Country:</text>
+                <input type="text" class="form-control" id="Count" placeholder="e.g Greece">
+            </div>
+
+            <button  onclick="RegSQL()" type="submit" class="btn btn-default">Submit</button>
+        </div>
+        <br><br>
+        <div class="alert alert-danger" id="Ale1" style='display: none;width: 50%;'>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong>Error!</strong> There is already an account with this email.
+        </div>
+        <div class="alert alert-success" id="Ale2" style='display: none;width: 50%;'>
+           <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  
+            <strong>Success!</strong> <br> An email has been send to your email account with your password! <br> Please change this password after <a href="#Head"  onclick='myClick("Login","LogHead","Register","RegHead","Home","DefHead","About","AboutHead")'>Login.</a> 
+        </div>
+        <div class="alert alert-warning" id="Ale3" style='display: none;width: 50%;'>
+        	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          	<strong>Warning!</strong> The fields with (*) are compulsory.
+        </div>
+    </div>
+    </div>
+
+    
+
+    
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- Second Image and section -->
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Make your VCF analysis faster!</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="Images/dna22.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <h3 align="left" >Guidance</h3>
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          
+          <p style="font-size:120%;" class="left-align light">There are certain steps in our website to follow in order to use the tools we provide. First of all, a <a href="#Head" onclick='myClick("Register","RegHead","Home","DefHead","Login","LogHead","About","AboutHead")'> registration </a> must be preceded. Then, with your account information, use the <a href="#Head" onclick='myClick("Login","LogHead","Register","RegHead","Home","DefHead","About","AboutHead")'> log in page</a> to sign in the MySQL database. You should found yourself in the dashboard page where you can view jobs, if any submitted, and their status as well.</p>
+
+        </div>
+      </div>
+      <p style="font-size:120%;" >The user may choose among these procedures for their analysis:</p>
+          <ol type="i" style="font-size:120%;">
+            <li>Detection of common SNPs </li>
+            <li>Detection of all non common SNPs</li>
+            <li>Detection of SNPs found in the one file but not in the other and vice versa.</li>
+          </ol>
+      <p style="font-size:120%;">A detailed example can be found here.</p>
+    </div>
+  </div>
+
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="Images/dna.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- Foter container -->
+
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Our Team!</h5>
+          <p  style="font-size:120%;" class="grey-text text-lighten-4">We are a group of motivated graduate students working on this project, under the supervision of Dr. Emmanouil Dialynas. More about us, you can find <a href="#Head" class="white-text"  onclick='myClick("About","AboutHead","Login","LogHead","Register","RegHead","Home","DefHead")'> here.</a> </p>
+        </div>
+       
+      </div>
+    </div>
+    <<!-- div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-5" >Bioinformatics Study Group</a>
+      </div> -->
+  </footer>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
