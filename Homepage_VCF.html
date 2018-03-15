@@ -29,7 +29,7 @@
 </head>
 
 <body background="Images/back.jpg">
-
+    <button onclick="topFunction()" id="myScrollUpBtn" title="Go to top">Top</button>
     <!-- ======================  BUTTONS ===================== -->
     <div  id="Head" class="container-fluid">
 
@@ -113,7 +113,7 @@
             <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
             <h5 class="center">Easy to work with</h5>
 
-            <p style="font-size:120%;" class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about our page.Feel free to contact us anytime.</p>
+            <p style="font-size:120%;" class="light">We have provided detailed documentation as well as specific examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about our page.Feel free to contact us anytime.</p>
             <h5 class="brown-text"> Join Us!</h5>
             <p style="font-size:120%;" class="light" id="Users_num">None</p>
             <script type="text/javascript">
@@ -151,15 +151,15 @@
 	              <!-- <h5 class="center">VCFtools</h5> -->
 
 	              <p style="font-size:120%;" class="center">
-	              Chatzipantsiou Christina<br />
-	              Kalaitzidou Chrysovalantou<br />
-	              Kioukis Antonios<br />
-	              Kyriakis Dimitrios<br />
-	              Linardos Panagiwtis<br />
-	              Papadovasilakis Zacharias<br />
-	              Verrou Kleio-Maria<br />
-	              </p>
-	         	 </div>
+                Christina Chatzipantsiou <br />
+                Chrysovalantou Kalaitzidou<br />
+                Antonios Kioukis <br />
+                Dimitrios Kyriakis <br />
+                Panagiwtis Linardos <br />
+                Zacharias Papadovasilakis <br />
+                Kleio-Maria Verrou <br />
+                </p>
+	         	  </div>
           		</div>
 
           <div class="col s12 m4">
@@ -167,13 +167,13 @@
               <h2 class="center brown-text"><i class="material-icons">contact_mail</i></h2>
               <!-- <h5 class="center">MySQL</h5> -->
               <p style="font-size:120%;" class="center">
-                chatzipantsiou@gmail.com<br />
-                kalaitzidou.chr@gmail.com<br />
-                antokioukis@gmail.com<br />
-                kyriakds@gmail.com<br />
-                mondestrasz@gmail.com<br />
-                zpapadov@hotmail.com<br />
-                kleioverrou@yahoo.com<br />
+                <a href="mailto:chatzipantsiou@gmail.com">chatzipantsiou@gmail.com</a>  <br />
+                <a href= "mailto:kalaitzidou.chr@gmail.com">kalaitzidou.chr@gmail.com </a> <br />
+                <a href= "mailto:antokioukis@gmail.com">antokioukis@gmail.com</a> <br />
+                <a href= "mailto:kyriakds@gmail.com">kyriakds@gmail.com </a> <br />
+                <a href= "mailto:mondestrasz@gmail.com">mondestrasz@gmail.com </a> <br />
+                <a href= "mailto:zpapadov@hotmail.com">zpapadov@hotmail.com </a> <br />
+                <a href= "mailto:kleioverrou@yahoo.com">kleioverrou@yahoo.com</a> <br />
               </p>
           </div>
           </div>
@@ -185,11 +185,11 @@
 
               <p style="font-size:120%;" class="center">
                 chr<br />
-                <a target="_blank" href="https://www.linkedin.com/in/chrysovalantou-kalaitzidou-70b819121/">LinkedIn_Kalaitzidou</a><br />
-                ant<br />
-                <a target="_blank" href="https://www.linkedin.com/in/dimitrios-kyriakis-9376a2120/">LinkedIn_Kyriakis</a><br />
-                akis<br />
-                zack<br />
+                 <a target="_blank" href="https://chrysovalantou.github.io/#home">Homepage Kalaitzidou</a><br />
+                <a target="_blank" href="https://github.com/antokioukis">GitHub Kioukis</a><br />
+                <a target="_blank" href="https://www.linkedin.com/in/dimitrios-kyriakis-9376a2120/">Homepage Kyriakis</a><br />
+                <a target="_blank" href="https://www.linkedin.com/in/akis-linardos-b84801140/">LinkedIn Linardos</a><br />
+                <a target="_blank" href="https://www.linkedin.com/in/zacharias-papadovasilakis-07966b119/">LinkedIn Papadovasilakis</a><br />
                 kleio<br />
               </p>
           </div>
@@ -205,7 +205,7 @@
 		Vassilika Vouton, Heraklion, Crete<br />
 		GREECE<br />
 		<br>
-		<a class="brown-text"> <i class="material-icons">contact_mail</i> </a> ed@imbb.forth.gr <br />
+		<a class="brown-text"> <i class="material-icons">contact_mail</i> </a> <a href="mailto:ed@imbb.forth.gr">ed@imbb.forth.gr </a><br />
 		<a class="brown-text"> <i class="material-icons">find_in_page</i></a> <a  target="_blank" href="http://www.imbb.forth.gr/imbb-people/en/bioinformatics-support-group-members/item/2439-manolis-dialynas" > Homepage </a>
 		<!-- <a class="center brown-text"><i class="material-icons">perm_data_setting</i> </a> -->
 		</p>
@@ -225,23 +225,23 @@
             <div class="form-group">
                 <i href="#" class="material-icons" >email</i>
                 <text for="email">Email: </text>
-                <input type="email" class="form-control" id="emaillg" placeholder="Enter email" name="emaillg">
+                <input type="email" class="form-control" id="emaillg" placeholder="Enter email" name="emaillg" onchange="validate('emaillg','LgBtn','AForget');">
             </div>
             <!-- Password -->
             <div class="form-group" style="font-size: 20 ">
                 <i href="#" class="material-icons" >https</i><text for="pwd">Password:</text>
                 <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
             </div>
-            <button onclick="LogSQL()" type="submit" class="btn btn-default">Submit</button>
+            <button id="LgBtn" onclick="LogSQL()" type="submit" class="btn btn-default">Submit</button>
             
         </div>
         <br><br>
-        	<a style="font-size: 18px;" > Forgot password? </a>
+        	<a id='AForget' onclick="Forget()" style="font-size: 18px;" > Forgot password? </a>
         	<br><br>
             <!-- ==========ALERTS============= -->
             <div class="alert alert-danger" id="Ale4" style='display: none;width: 50%;'>
 	            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-	            <strong>Error !</strong> There is not an account with this email.<br> You can register  <a href="#Head" onclick='myClick("Register","RegHead","Home","DefHead","Login","LogHead","About","AboutHead")'> here! </a>
+	            <strong>Error !</strong> There is not an account with this email.<br> You can register  <a href='#Head' onclick='myClick("Register","RegHead","Home","DefHead","Login","LogHead","About","AboutHead")'> here! </a>
         	</div>
 
             <div class="alert alert-danger" id="Ale5" style='display: none;width: 50%;'>
@@ -253,10 +253,15 @@
 	            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
 	            <strong>Empty field(s) !</strong> 
         	</div>
-			<div class="alert alert-success" id="Ale7" style='display: none;width: 50%;'>
+			<div class="alert alert-warning" id="Ale7" style='display: none;width: 50%;'>
 				<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-				<strong>sUCCESS!</strong> KOBLE.
+				<strong>Warning!</strong> Not Activated Account.
 			</div>
+            <div class="alert alert-success" id="Ale8" style='display: none;width: 50%;'>
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                <strong>Success!</strong> New password have send to your email!.
+            </div>
+
             <br><br><br>
     </div>  
     </div>
@@ -282,10 +287,10 @@
             </div>
 
             <!-- EMAIL -->
-            <div class="form-group">
+            <div id="regmail" class="form-group">
                 <i href="#" class="material-icons" >email</i>
                 <text for="email">&nbsp;Email:</text>
-                <input style="font-size: 15px;" type="email" class="form-control" id="email" placeholder="Enter email *" name="email">
+                <input style="font-size: 15px;" type="email" class="form-control" id="email" placeholder="Enter email *" name="email" onchange="validate('email','subBtn','a');">
             </div>
 
             <!-- Institute -->
@@ -300,7 +305,7 @@
                 <input type="text" class="form-control" id="Count" placeholder="e.g Greece">
             </div>
 
-            <button  onclick="RegSQL()" type="submit" class="btn btn-default">Submit</button>
+            <button  id="subBtn" onclick="RegSQL()" type="submit" class="btn btn-default">Submit</button>
         </div>
         <br><br>
         <div class="alert alert-danger" id="Ale1" style='display: none;width: 50%;'>
@@ -341,7 +346,8 @@
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
           
-          <p style="font-size:120%;" class="left-align light">There are certain steps in our website to follow in order to use the tools we provide. First of all, a <a href="#Head" onclick='myClick("Register","RegHead","Home","DefHead","Login","LogHead","About","AboutHead")'> registration </a> must be preceded. Then, with your account information, use the <a href="#Head" onclick='myClick("Login","LogHead","Register","RegHead","Home","DefHead","About","AboutHead")'> log in page</a> to sign in the MySQL database. You should found yourself in the dashboard page where you can view jobs, if any submitted, and their status as well.</p>
+          <p style="font-size:120%;" class="left-align light"> The online aspect of data analysis tools is a feature you should not miss. Solutions for online data analysis enable you to access your analysis results, dashboards, reports and anything you are working on, at any time and from anywhere. Such flexibility and accessibility is a great advantage in a world where the information circulates faster than ever before. Online data analytics tools, like the one we offer, enable you to be in charge of the entire analytical process, and to therefore make better decisions at speed.<br>
+          There are certain steps in our website to follow in order to use the tools we provide. Make sure to <a href="#index-banner" onclick='myClick("Register","RegHead","Home","DefHead","Login","LogHead","About","AboutHead")'> register </a> first, and with your account information, use the <a href="#index-banner" onclick='myClick("Login","LogHead","Register","RegHead","Home","DefHead","About","AboutHead")'> log in page</a> to sign in your MySQL database account and view your dashboard page where you can start an analysis, view jobs, if any submitted, and their status as well.</p>
 
         </div>
       </div>
@@ -351,7 +357,7 @@
             <li>Detection of all non common SNPs</li>
             <li>Detection of SNPs found in the one file but not in the other and vice versa.</li>
           </ol>
-      <p style="font-size:120%;">A detailed example can be found here.</p>
+      <p style="font-size:120%;">A detailed guide, with examples to help you get started, can be found <a target="_blank" href="./untitled.pdf">here</a>.</p>
     </div>
   </div>
 
