@@ -35,16 +35,14 @@ function validateEmail(email) {
   return re.test(email);
 }
 
-function validate(mailid,BtnName,BtnName2) {
+function validate(mailid,BtnName) {
   var email = document.getElementById(mailid).value;
   if (validateEmail(email)) {
     document.getElementById(mailid).style.color = "green"
     document.getElementById(BtnName).disabled = false;
-    document.getElementById(BtnName2).disabled = false;
   } else {
     document.getElementById(mailid).style.color = "red"
     document.getElementById(BtnName).disabled = true;
-    document.getElementById(BtnName2).disabled = true;
   }
   return false;
 }
