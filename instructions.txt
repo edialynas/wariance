@@ -1,0 +1,46 @@
+San database 9a stisoume Mariadb (free alternative to mysql)
+  http://www.itzgeek.com/how-tos/linux/ubuntu-how-tos/install-mariadb-on-ubuntu-16-04.html
+  sudo apt-get install mariadb-server mariadb-client
+  sudo mysql_secure_installation (root password new =pasok, dont remove anonymous users, keep test database)
+  login as root
+  sudo mysql -u root -p
+  ctrl+d gia exit
+
+To parse tou vcf 8a ginei me python
+  *Iparxoun paketa gia na kanoume automata parse to vcf, wste na min mple3oume poli me auto to kommati
+    #pyvcf install package
+    sudo apt update
+    sudo apt install python-pyvcf
+    #mysql python install package
+    https://dev.mysql.com/doc/connector-python/en/connector-python-installation.html
+
+    https://dev.mysql.com/doc/connector-python/en/connector-python-example-connecting.html
+
+
+Gia tin allilepidrasi tis basis me ta VCF, pali python.
+
+Gia tin analisi (sigkrisi 2 vcf, bres koina,diaforetika oti allo)
+    *To paketo pou einai gia to parse tou vcf exei mesa kai VCF writer opote prepei na ftia3oume to kommati
+    tis proetoimasias gia na grapsei to paketo vcf.
+
+
+Links gia to low level kommati tou project
+
+vcf format
+  https://samtools.github.io/hts-specs/VCFv4.2.pdf
+
+temp data apo edw (zebrafish pou einai mikro alla oxi poli mikro)
+ftp://ftp.ensembl.org/pub/release-91/variation/vcf/danio_rerio/
+to .vcf.gz
+
+pick what corresponds
+  https://downloads.mariadb.org/mariadb/repositories/#mirror=crete&distro=Ubuntu&distro_release=artful--ubuntu_artful&version=10.2
+
+how to connect python to mariadb
+  https://mariadb.com/resources/blog/how-connect-python-programs-mariadb
+
+idio me to apo panw alla exei paradeigmata
+  https://www.jeremymorgan.com/tutorials/python-tutorials/how-to-connect-to-mysql-with-python/
+
+Gia to import mysql.connector
+https://dev.mysql.com/downloads/connector/python/

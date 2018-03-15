@@ -1,0 +1,74 @@
+CREATE DATABASE dialisi;
+
+USE dialisi;
+
+CREATE USER 'antonios'@'%';
+
+GRANT ALL PRIVILEGES ON dialisi.* TO 'antonios'@'%' WITH GRANT OPTION;
+
+CREATE TABLE USER(
+  user_id  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(40) NOT NULL,
+  email    VARCHAR(40) NOT NULL,
+  
+  PRIMARY KEY(user_id),
+  
+  CONSTRAINT email_unique UNIQUE (email)
+);
+
+
+CREATE TABLE FILE(
+  file_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  file_name VARCHAR(50) NOT NULL,
+  user_id INT UNSIGNED NOT NULL,
+  
+  PRIMARY KEY (file_id),
+
+  CONSTRAINT user_file_id
+   FOREIGN KEY (user_id) REFERENCES USER (user_id)
+   ON DELETE CASCADE
+   ON UPDATE RESTRICT
+);
+
+CREATE TABLE VCF(
+  line_id     INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  file_id     INT UNSIGNED NOT NULL,
+  chromosome  INT UNSIGNED NOT NULL,
+  position    INT UNSIGNED NOT NULL,
+  id          VARCHAR(50) NOT NULL,
+  reference   VARCHAR(50) NOT NULL,
+  alternative VARCHAR(50) NOT NULL,
+  quality     VARCHAR(50) NOT NULL,
+  filter      VARCHAR(50) NOT NULL,
+  information VARCHAR(50) NOT NULL,
+  
+  PRIMARY KEY (line_id),
+  
+  CONSTRAINT file_vcf_id
+    FOREIGN KEY (file_id) REFERENCES FILE (file_id)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT
+);
+
+
+CREATE TABLE JOB(
+   job_id       INT NOT NULL AUTO_INCREMENT,
+   job_name     VARCHAR(50) NOT NULL,
+   job_creator  VARCHAR(40) NOT NULL,
+   vcf_1_id     INT UNSIGNED NOT NULL,
+   vcf_2_id     INT UNSIGNED NOT NULL,
+   status       VARCHAR(40),
+
+   PRIMARY KEY ( job_id ),
+   
+   CONSTRAINT vcf_file1_id
+    FOREIGN KEY (vcf_1_id) REFERENCES VCF (file_id)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT,
+
+   CONSTRAINT vcf_file2_id
+    FOREIGN KEY (vcf_2_id) REFERENCES VCF (file_id)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT
+);
