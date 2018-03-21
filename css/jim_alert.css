@@ -19,4 +19,37 @@
 .closebtn:hover {
     color: black;
 }
+
+#myScrollUpBtn {
+  
+display: none;
+
+position: fixed;
+
+bottom: 20px;
+
+  right: 20px;
+
+  z-index: 199;
+
+  border: none;
+
+  outline: none;
+
+  background-color: #008080;
+
+  color: white;
+
+  cursor: pointer;
+
+  padding: 15px;
+
+  border-radius: 10px;
+}
+
+
+
+#myScrollUpBtn:hover {
+ background-color: #004d4d;
+}
 </style>
