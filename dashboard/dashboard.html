@@ -1,0 +1,388 @@
+
+<!-- AUTHOR: Zacharias Papadovasilakis -->
+<!-- EMAIL:  zpapadov@hotmail.com -->
+
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>VCFree</title>
+    <link rel="shortcut icon" href="images/dna_logo.ico">
+
+    <!-- Bootstrap -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/dashboard_scripts.js"></script>
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/init.js"></script>    
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/jim_alert.css" type="text/css" rel="stylesheet"/>
+    <link href="css/dashboard.css" rel="stylesheet" type="text/css">
+</head>
+
+<style>
+	body {
+		background-image: url("images/back.jpg");
+/*		background-repeat: no-repeat*/
+		background-size: cover;
+	     }
+	strong { font-weight: bold; }
+</style>
+
+<body>
+    <!-- ==================== TOP BUTTONS ==================== -->
+    <button onclick="topFunction()" id="myScrollUpBtn" title="Go to top">Top</button>
+
+    <div  id="Head" class="container-fluid">
+
+        <nav class="white" role="navigation">
+          	<div class="nav-wrapper container">
+				<div class="left" id="logo-container" class="brand-logo">
+
+					<a href="http://en.uoc.gr/" target="blank">
+					<img  class="header-image" src="images/sima_uoc.jpg" width="55" height="50"> 
+					</a>
+					<a href="https://www.forth.gr/" target="blank">
+					<img class="header-image" src="images/forth_logo.png" width="50" height="50"> 
+					</a>
+					<a href="http://www.bioinformatics-grad.gr/en/" target="blank">
+					<img class="header-image" src="images/med_logo.jpg" width="50" height="50"> 
+					</a>
+				</div>
+		        <ul class="right">
+		            <li><a onclick="logOut('../Homepage_VCF.html')"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+		            <li><a onclick="deleteAccount('../Homepage_VCF.html')"><span style="vertical-align: middle; display: inline-flex;"class="material-icons">delete_forever</span> Delete Account</a></li>
+		        </ul>
+
+		        <br><br>
+    		</div>
+    	</nav>
+    </div>
+
+    <!-- ARE YOU SURE (delete account) -->
+	<div id="myModalDeleteAccount" class="modal">
+		<div class="modal-content" id="accountModalContent">
+			<span><p>Are you sure? (A new registration will be required)</p>
+		<button type="button" class="btn btn-primary btn-xs" onclick="proceedDelAccount()" style="background-color: #FD3A0F;">
+			<span style="vertical-align: middle; display: inline-flex;" class="material-icons" id="modalDelAccountBtn">delete</span>&nbsp;&nbsp;Delete
+		</button>
+
+		<button type="button" class="btn btn-primary btn-xs" onclick="cancelDelAccount()" style="background-color: #D3D3D3;color: black; float: right;">
+			<!-- <span style="vertical-align: middle; display: inline-flex;" class="material-icons" id="cancelModalDelAccountBtn">keyboard_return</span>&nbsp;&nbsp; -->Cancel
+		</button>
+		</div>
+
+	</div>
+    <!-- ======================  WELCOME ===================== -->
+    <div  class="parallax-container" style="min-height:300px;">
+    	<div class="section no-pad-bot">
+      		<div class="container">
+        		<br><br><br><br>
+
+        		<div class="row center">
+          			<h5 class="header col s12 light">Host your VCF analysis in a MySQL database!</h5>
+        		</div>
+
+        		<h1 id='DefHead' class="header center teal-text text-lighten-2" >Welcome<br><span id="username"></span></h1>
+        
+      		</div>
+
+    	</div>
+
+    	<div class="parallax"><img src="images/dna.jpg" alt="Unsplashed background img 1">
+    	</div>
+
+  	</div>
+
+  	<!-- ========================  MENU ====================== -->
+  	<div class="container" id="menu" style="margin-top: 10px;height: 700px;">
+  		<ul class="nav nav-tabs tabs-left" style="font-size: 20px;font-variant: small-caps;">
+  			<li style="float: left;" onclick="checkFiles()"><a data-toggle="tab" href="#analysis">Start An Analysis</a></li>
+		    <li class="active" style="float: right;"><a data-toggle="tab" href="#help">Help</a></li>  
+		    <li style="float: left;"><a data-toggle="tab" href="#history">History</a></li>
+		    <li style="float: left;" onclick="listFiles()"><a data-toggle="tab" href="#myFiles">My Files</a></li>
+  		</ul>
+
+
+	  	<div class="tab-content" style="align-items: stretch;justify-content: center;">
+
+	  		<!--====== START AN ANALYSIS ======-->
+	    	<div id="analysis" class="tab-pane fade" style="align-self: stretch;">
+	    	  <div class="menu-container" id="analysis-container" style="align-self: stretch;">
+
+	    		<!-- CHOOSE FILES -->
+				<div class="analysis-step" id="step1" tabindex="-1">
+					<h4>Step 1</h4>
+      				<table style="margin: 0px;">
+      					<thead>
+							<th style="text-align:center;">Choose 2 files</th>
+						</thead>
+      				</table>
+      				<div style="overflow-y: auto; width: 100%;height: 460px;border-bottom: 2px solid #D3D3D3;">
+		      			<table id="analysisFileTable" class="table table-striped table-hover" style="align-items: center;">
+					    </table>
+      				</div>    				
+<!--       				<div style="top: 90%;left: 50%;transform: translateX(-50%); position: absolute;">
+						<button type='button' class='btn btn-default btn-xs' onclick="" style="font-size:15px;" id="submitFilesBtn">
+						        <span class="glyphicon glyphicon-open"></span> Submit
+						</button>        					
+      				</div>	 -->				
+				</div>
+
+				<!-- CHOOSE ANALYSIS -->
+				<div class="analysis-step" id="step2" tabindex="-1">
+					<h4>Step 2</h4>
+      				<table style="margin: 0px;">
+      					<thead>
+							<th style="text-align:center;">Choose an analysis</th>
+						</thead>
+      				</table>
+      				<div style="width: 100%;height: 460px;border-bottom: 2px solid #D3D3D3;display: flex;justify-content:center;">
+	      			   <div class="menu-container" style="flex-direction: column;margin-top: 70px; align-items:flex-start;">
+					      <input name="analradio" type="radio" id="test1" onchange="getAnalysis()" value="common" />
+					      <label for="test1" style="color: black; font-weight: normal;">Intersect</label>
+					      <input name="analradio" type="radio" id="test2" onchange="getAnalysis()" value="diff" />
+					      <label for="test2" style="color: black; font-weight: normal;">Union-difference</label>
+					      <input name="analradio" type="radio" id="test3" onchange="getAnalysis()" value="unique" />
+					      <label for="test3" style="color: black; font-weight: normal;">Self-difference</label>      			      
+	      			   </div> 
+	      			</div>   					
+				</div>
+
+				<!-- SUBMIT PARAMETERS -->
+				<div class="analysis-step" id="step3" tabindex="-1">
+					<h4>Step 3</h4>
+      				<table style="margin: 0px;">
+      					<thead>
+							<th style="text-align:center;">Submit your parameters</th>
+						</thead>
+      				</table>
+      				<div style="width: 100%;height: 460px;border-bottom: 2px solid #D3D3D3;display: flex;justify-content:center;">
+						<button type='button' class='btn btn-default btn-lg' style="font-size:20px; height: 15%; width: 30%;margin-top: 70px;" id="submitAnalysisBtn" data-toggle="tooltip" title="Submit" onclick="submitAnalysis()">
+						        <div class="glyphicon glyphicon-open"></div>
+						</button> 
+      				</div>      									
+				</div>
+
+			  </div>
+	    	</div>
+
+	    	<!-- WARNING MESSAGE -->
+			<div id="myModalSubmitWarn" class="modal">
+				<div class="modal-content" id="submitWarnContent" style="flex-direction: column;">
+					<h4 style="color: red;border: 2px solid red;border-radius: 4px; text-align: center;padding-top: 2px;">Submission Failed</h4>
+					<p style="align-self: flex-start;">Please consider the following:</p>
+					<ul style="margin-left: 13px;">
+					  <li style="display:list-item;list-style: disc;">Choose exactly 2 files.</li>
+					  <li style="display:list-item;list-style: disc;">Choose an analysis mode.</li>
+					  <li style="display:list-item;list-style: disc;">If the problem persists, please contact us at <a>ed@mail.imbb.</a></li>
+					</ul> 
+					<button type="button" class="btn btn-primary btn-xs" onclick="document.getElementById('myModalSubmitWarn').style.display = 'none'" style="color: black;position: absolute;top: 0px;right:0px; background-color: transparent;padding: 0px;font-size: 20px;box-shadow: none;">
+						<div class="glyphicon glyphicon-remove-circle"></div>
+					</button>				
+				</div>
+			</div>
+
+	    	<!-- SUCCESS MESSAGE -->
+			<div id="myModalSubmitSuccess" class="modal">
+				<div class="modal-content" id="submitSuccessContent" style="flex-direction: column;align-items: center;">
+					<h4 style="color: #009900;border: 2px solid #009900;border-radius: 4px;text-align: center;padding-top: 2px;">Submission Successful</h4>
+					<button type="button" class="btn btn-primary btn-xs" onclick="document.getElementById('myModalSubmitSuccess').style.display = 'none'" style="color: black;position: absolute;top: 0px;right:0px; background-color: transparent;padding: 0px;font-size: 20px;box-shadow: none;">
+						<div class="glyphicon glyphicon-remove-circle"></div>
+					</button>				
+				</div>
+			</div>					
+
+	    	<!-- ===== MYFILES =====-->
+	    	<div id="myFiles" class="tab-pane fade">
+	      		<div class="menu-container" style="justify-content: space-between;align-items:stretch;">
+	      			<div class="menu-container" style="width:48%;flex-direction: column;margin-right: 2px;">
+
+	      				<!-- ADDFILE -->
+	      				<div class="menu-container" style="height: 80px;border-bottom: 2px solid #D3D3D3; margin-top: 5px; width:100%;justify-content: space-between;" id="upFileContainer">
+
+	      					<!-- INPUT FIELD -->
+						    <div class="file-field input-field" style="flex-grow: 2;margin-right: 10px;">
+						      <div class="btn btn-default btn-xs" id="addbtn" style="font-size:15px;padding-left: 15px;padding-right: 15px;">
+						        <span class="glyphicon glyphicon-plus" id="glyph"></span>
+						        <input type="file" data-toggle="tooltip" title="Add a file" enctype="multipart/form-data" id="myFileUpload">
+						      </div>
+						      <div class="file-path-wrapper" id="phld">
+						        <input class="file-path validate" type="text" placeholder="Add a file..">
+						      </div>
+						    </div>
+
+						    <div class="menu-container" style="" id="right">
+						      <!-- UPLOAD -->
+						      <div class="btn btn-default btn-xs" data-toggle="tooltip" title="Upload" style="font-size:15px;padding-left: 15px;padding-right: 15px;margin: 2px;background-color: #66b3ff;" onclick="uploadFile()" id="uploadbtn">
+						        <span class="glyphicon glyphicon-cloud-upload"></span>
+						      </div>
+
+						      <!-- CLEAR -->
+						      <div class="btn btn-default btn-xs" id="addbtn" data-toggle="tooltip" title="Clear" style="font-size:15px;padding-left: 15px;padding-right: 15px;margin: 2px;background-color: #888888;" onclick="clearFile()">
+								<span style="vertical-align: middle; display: inline-flex;" class="material-icons">cancel</span>
+						      </div>						      						    
+						    </div>					
+
+						</div>
+                            
+	      				<!-- LISTFILES -->
+	      				<p style="font-size: 17px;font-weight: bold;">Stored Files</p>
+	      				<table style="margin: 0px;">
+	      					<thead>
+								<th>Filename</th>
+								<th></th>
+							</thead>
+	      				</table>
+	      				<div style="overflow-y: auto; width: 100%;height: 408px;border-bottom: 2px solid #D3D3D3;">
+		      				<table id="fileTable" class="table table-striped table-hover" style="align-items: center;">
+		      				</table>
+	      				</div>
+
+	      				<!-- ARE YOU SURE (delete file) -->
+	      				<div id="myModalDeleteFile" class="modal">
+	      					<div class="modal-content" id="fileModalContent">
+	      						<span><p>Are you sure?</p>
+								<button type="button" class="btn btn-primary btn-xs" onclick="proceedDelFile()" style="background-color: #FD3A0F;padding-right: 10px;padding-left: 10px;margin-right: 5px;">
+          						<span style="vertical-align: middle; display: inline-flex;" class="material-icons" id="modalDelFileBtn">delete</span>&nbsp;&nbsp;Delete</span>
+          						</button>
+
+								<button type="button" class="btn btn-primary btn-xs" onclick="cancelDelFile()"" style="background-color: #D3D3D3;color: black; float:right;padding-right: 10px;padding-left: 10px;margin-left: 5px;">
+          						<span style="vertical-align: middle; display: inline-flex;" class="material-icons" id="cancelModalDelFileBtn"><!-- keyboard_return --></span>Cancel</span>
+          						</button></span>
+  							</div>
+	      				</div>
+	      			</div>
+
+	      			<!-- PREVIEW -->    			
+	      			<div class="menu-container" style="width:48%;flex-direction: column;align-items: flex-end;display: none;" id="reshow">
+	      				<button type="button" class="btn btn-primary btn-xs" onclick="this.parentElement.style.display='none';" style="margin: 5px 10px 5px 0px;background-color: #D3D3D3;float: right;" data-toggle="tooltip" title="Hide View">
+          					<span class="glyphicon glyphicon-remove" style="color: #282828"></span>
+          				</button>
+	      				<div style="width:100%;height:536px;overflow-y: auto;"><table id="previewFile" class="table table-striped table-hover" style="align-items: center;">
+	      				</table></div>
+	      			</div>
+	      		</div>
+	    	</div>
+
+	    	<!-- ===== HISTORY =====-->
+	    	<div id="history" class="tab-pane fade">
+	      		<h4>Analyses History</h4>
+
+	      		<ul class="nav nav-tabs" style="font-size: 15px;font-variant: small-caps;">
+		  			<li class="active" style="float: left;"><a data-toggle="tab" href="#completed_jobs">Completed</a></li>
+				    <li style="float: left;"><a data-toggle="tab" href="#pending_jobs">Pending</a></li>  
+  				</ul>
+
+  				<div class="tab-content" style="align-items: stretch;justify-content: center;">
+  					<div id="completed_jobs" class="tab-pane fade">
+  					</div>
+
+  					<div id="pending_jobs" class="tab-pane fade">
+  					</div>  					
+  				</div>
+	    	</div>
+
+	    	<!-- ===== HELP =====-->
+	    	<div id="help" class="tab-pane fade in active">
+	      		<h4>Getting help with options</h4><br>
+
+	      		<h5>- Start An Analysis</h5>
+	      		<p>In section <strong>Start an Analysis</strong> you are guided step by step in running a new analysis. First, choose 2 of the already uploaded files (if you want to upload a new file, go to section "My Files"). Then pick an analysis from the available modes and finally inspect your parameters and confirm.</p><br>	  
+	      		    		
+	      		<h5>- My Files</h5>
+	      		<p>In section <strong>My Files</strong> you can manage your uploaded files by viewing, overwriting, or even uploading new ones.</p><br>
+
+	      		<h5>- History</h5>
+	      		<p>In section <strong>History</strong> you can view the status of the jobs submitted, as well as inspecting results for finished analyses.</p><br>
+
+	    	</div>
+	  	</div>
+	</div>
+
+
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- Second Image and section -->
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Make your VCF analysis faster!</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="images/dna22.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <h3 align="left" >Guidance</h3>
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          
+          <p style="font-size:120%;" class="left-align light">There are certain steps in our website to follow in order to use the tools we provide. First of all, a <a href="#Head" onclick='myClick("Register","RegHead","Home","DefHead","Login","LogHead","About","AboutHead")'> registration </a> must be preceded. Then, with your account information, use the <a href="#Head" onclick='myClick("Login","LogHead","Register","RegHead","Home","DefHead","About","AboutHead")'> log in page</a> to sign in the MySQL database. You should found yourself in the dashboard page where you can view jobs, if any submitted, and their status as well.</p>
+
+        </div>
+      </div>
+      <p style="font-size:120%;" >The user may choose among these procedures for their analysis:</p>
+          <ol type="i" style="font-size:120%;">
+            <li>Detection of common SNPs </li>
+            <li>Detection of all non common SNPs</li>
+            <li>Detection of SNPs found in the one file but not in the other and vice versa.</li>
+          </ol>
+      <p style="font-size:120%;">A detailed example can be found here.</p>
+    </div>
+  </div>
+
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="images/dna.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- Footer container -->
+
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Our Team!</h5>
+          <p  style="font-size:120%;" class="grey-text text-lighten-4">We are a group of motivated graduate students working on this project, under the supervision of Dr. Emmanouil Dialynas. More about us, you can find <a href="#Head" class="white-text"  onclick='myClick("About","AboutHead","Login","LogHead","Register","RegHead","Home","DefHead")'> here.</a> </p>
+        </div>
+       
+      </div>
+    </div>
+    <<!-- div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-5" >Bioinformatics Study Group</a>
+      </div> -->
+  </footer>
+
+</body>
+
+<html>
