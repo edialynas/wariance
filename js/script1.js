@@ -1,3 +1,7 @@
+/*!
+ * - @author: Dimirios Kyriakis 
+ * - contact: kyriakds@gmail.com 
+ */
 
 
 var httpConn = new XMLHttpRequest(); // klish me http kai pairnei ena xml
