@@ -1,5 +1,5 @@
 /*!
- * - @author: Dimirios Kyriakis 
+ * - @author: Dimitrios Kyriakis 
  * - contact: kyriakds@gmail.com 
  */
 
